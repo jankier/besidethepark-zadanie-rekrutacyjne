@@ -2,6 +2,8 @@
   --black: #000000;
   --green: #daed49;
   --cyan: #00bdd4;
+  --gray: #464646;
+  --light-gray: #cccccc;
 }
 
 ::-webkit-scrollbar {

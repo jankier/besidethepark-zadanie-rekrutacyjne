@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Episodes from "./pages/Episodes/Episodes";
 import Characters from "./pages/Characters/Characters";
 import CharacterDetails from "./pages/CharacterDetails/CharacterDetails";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/characters" element={<Characters />} />
         <Route path="/character-detials" element={<CharacterDetails />} />
       </Routes>
+      <Footer />
     </>
   );
 }
