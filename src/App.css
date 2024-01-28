@@ -1,0 +1,9 @@
+:root {
+  --black: #000000;
+  --green: #daed49;
+  --cyan: #00bdd4;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

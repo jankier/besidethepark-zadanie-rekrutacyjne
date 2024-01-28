@@ -1,0 +1,75 @@
+@media only screen and (max-width: 1060px) {
+  .header {
+    height: 71px !important;
+  }
+  .header-title {
+    width: 206px !important;
+    height: 36px !important;
+    top: 21px !important;
+    left: calc(50% - 101.5px) !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    line-height: 36px !important;
+  }
+  .header-rect-green {
+    width: 100% !important;
+  }
+  .header-rect-separator {
+    width: 0% !important;
+  }
+  .header-rect-cyan {
+    width: 0% !important;
+  }
+}
+
+.header {
+  width: 100%;
+  height: 95px;
+  position: relative;
+  user-select: none;
+}
+
+.header-background {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.header-rect-green {
+  width: calc(50% + 21px);
+  height: 100%;
+  background-color: var(--green);
+}
+
+.header-rect-separator {
+  position: absolute;
+  height: 100%;
+  width: 58.1px;
+  background: linear-gradient(
+    to bottom right,
+    var(--green) 50%,
+    transparent 50%
+  );
+  left: calc(50% + 21px);
+}
+
+.header-rect-cyan {
+  width: calc(50% - 21px);
+  height: 100%;
+  background-color: var(--cyan);
+}
+
+.header-title {
+  position: absolute;
+  color: var(--black);
+  width: 241px;
+  height: 42px;
+  top: 28px;
+  left: 65.5px;
+  font-family: Lato;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+}
