@@ -9,3 +9,17 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.text {
+  font-family: Lato;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.text-400 {
+  font-weight: 400;
+}
+
+.text-700 {
+  font-weight: 700;
+}
