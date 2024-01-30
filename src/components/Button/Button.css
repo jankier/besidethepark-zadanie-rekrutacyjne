@@ -1,15 +1,35 @@
+@media only screen and (max-width: 1060px) {
+  .back-button {
+    width: 132px !important;
+    height: 38px !important;
+  }
+
+  .back-button > svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .back-button > span {
+    font-size: 20px !important;
+    line-height: 24px !important;
+  }
+}
+
 .back-button {
   display: flex;
   width: 181px;
   height: 50px;
-  top: 125px;
-  left: 50px;
   border-radius: 10px;
   border: none;
   background-color: var(--light-cyan);
   align-items: center;
   justify-content: center;
   gap: 3px;
+}
+
+.back-button > svg {
+  width: 29px !important;
+  height: 29px !important;
 }
 
 .back-button > span {
