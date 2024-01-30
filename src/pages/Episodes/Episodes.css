@@ -126,6 +126,7 @@
 
 .episodes-episode {
   display: flex;
+  text-decoration: none;
 }
 
 .episodes-episode:nth-child(2n) {

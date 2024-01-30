@@ -1,9 +1,10 @@
-import "./Episodes.css";
-import title_img from "../../assets/image.png";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import title_img from "../../assets/image.png";
+import "./Episodes.css";
 
 const Episodes = () => {
-  interface SeriesData {
+  type EpisodesData = {
     id: number;
     name: string;
     air_date: string;
@@ -11,26 +12,29 @@ const Episodes = () => {
     characters: string[];
     url: string;
     created: string;
-  }
+  };
 
-  const [seriesData, getSeriesData] = useState<undefined[] | SeriesData[]>([]);
+  const [episodesData, getEpisodesData] = useState<
+    undefined[] | EpisodesData[]
+  >([]);
 
   useEffect(() => {
-    const authParameters = {
-      method: "GET",
-    };
-    fetch(
-      "https://rickandmortyapi.com/api/episode/?episode=S04",
-      authParameters
-    )
-      .then((result) => result.json())
-      .then((data) => getSeriesData(data.results));
+    async function fetchEpisodesData() {
+      try {
+        const res = await fetch(
+          `https://rickandmortyapi.com/api/episode/?episode=S04`
+        );
+        const data = await res.json();
+        getEpisodesData(data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchEpisodesData();
   }, []);
 
-  console.log(seriesData);
-
   return (
-    <div className="episodes">
+    <section className="episodes">
       <div className="episodes-left">
         <div className="episodes-title">
           <span className="text text-400 episodes-title-text-black">
@@ -42,27 +46,31 @@ const Episodes = () => {
             Rick and Morty
           </span>
         </div>
-        <div className="episodes-img">
+        <figure className="episodes-img">
           <img src={title_img} alt="Rick and Morty show image" />
-        </div>
+        </figure>
       </div>
       <div className="episodes-right">
-        {seriesData.map((episode, index) => {
+        {episodesData.map((episode) => {
           if (episode === undefined) {
             console.log(episode);
           }
           return (
-            <div key={index} className="episodes-episode text text-700">
+            <Link
+              key={episode?.id}
+              className="episodes-episode text text-700"
+              to={`/characters?id=${episode?.id}`}
+            >
               <div className="episodes-no">{episode?.episode}</div>
               <div className="episodes-info">
                 <div className="episodes-name">{episode?.name}</div>
                 <div className="episodes-date">{episode?.air_date}</div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
