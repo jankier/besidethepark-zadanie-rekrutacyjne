@@ -1,9 +1,12 @@
 :root {
   --black: #000000;
   --green: #daed49;
+  --lime: #bdd800;
   --cyan: #00bdd4;
   --gray: #464646;
+  --medium-gray: #959595;
   --light-gray: #cccccc;
+  --light-gray1: #d1d1d1;
 }
 
 ::-webkit-scrollbar {

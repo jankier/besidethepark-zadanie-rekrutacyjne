@@ -1,23 +1,23 @@
 @media only screen and (max-width: 1060px) {
   .episodes {
     flex-direction: column !important;
+    margin-top: 41px !important;
   }
 
   .episodes-left {
-    margin-top: 42px !important;
     align-items: start !important;
     gap: 44px !important;
   }
 
   .episodes-title {
     width: 332px !important;
-    padding-left: calc(50% - 180px) !important;
-    gap: 8px !important;
+    padding-left: calc(50% - 180.3px) !important;
+    gap: 5px !important;
   }
 
   .episodes-title-text-black {
     font-size: 38px !important;
-    line-height: 40px !important;
+    line-height: 42.2px !important;
   }
 
   .episodes-title-text-cyan {
@@ -26,7 +26,7 @@
   }
 
   .episodes-img {
-    padding-left: calc(50% - 170px) !important;
+    padding-left: calc(50% - 160px) !important;
     max-height: 306px;
     overflow: hidden !important;
     display: flex;
@@ -36,31 +36,66 @@
     width: 320px !important;
     object-fit: cover;
   }
+
+  .episodes-right {
+    padding-left: calc(50% - 181px) !important;
+    padding-top: 95px;
+    padding-bottom: 20px;
+  }
+
+  .episodes-episode {
+    flex-direction: column !important;
+    max-width: 362px;
+  }
+
+  .episodes-episode:last-child > .episodes-info {
+    border-bottom: none;
+  }
+
+  .episodes-no {
+    font-size: 18px !important;
+    line-height: 21.6px !important;
+    padding-top: 20px !important;
+  }
+
+  .episodes-info {
+    border-left: none !important;
+    border-bottom: 1px solid var(--light-gray1);
+    padding-left: 0 !important;
+    gap: 13px !important;
+    padding-top: 12.6px !important;
+    padding-bottom: 20.3px !important;
+  }
+
+  .episodes-name {
+    font-size: 18px !important;
+    line-height: 21.6px !important;
+  }
+
+  .episodes-date {
+    font-size: 15px !important;
+    line-height: 18px !important;
+  }
 }
 
 .episodes {
   display: flex;
   user-select: none;
+  margin-top: 121px;
 }
 
 .episodes-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 64px;
-  margin-top: 121px;
 }
 
 .episodes-title {
-  position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 613px;
-  height: auto;
   gap: 4px;
-  padding-left: calc(40% - 150px);
+  padding-left: 172px;
 }
 
 .episodes-title-text-black {
@@ -83,4 +118,50 @@
   width: 100%;
   max-width: 647px;
   height: auto;
+}
+
+.episodes-right {
+  padding-left: 209px;
+}
+
+.episodes-episode {
+  display: flex;
+}
+
+.episodes-episode:nth-child(2n) {
+  color: var(--lime);
+}
+
+.episodes-episode:nth-child(2n + 1) {
+  color: var(--cyan);
+}
+
+.episodes-no {
+  display: flex;
+  font-size: 25px;
+  line-height: 30px;
+  padding-right: 33.5px;
+  padding-top: 18px;
+  color: var(--black);
+}
+
+.episodes-info {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--light-gray1);
+  gap: 13px;
+  padding-left: 29.5px;
+  padding-top: 18px;
+  padding-bottom: 21px;
+}
+
+.episodes-name {
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.episodes-date {
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--medium-gray);
 }
