@@ -7,11 +7,13 @@
   .back-button > svg {
     width: 19px !important;
     height: 19px !important;
+    padding-top: 9px !important;
   }
 
   .back-button > span {
     font-size: 20px !important;
     line-height: 24px !important;
+    padding-top: 8px !important;
   }
 }
 
@@ -22,17 +24,18 @@
   border-radius: 10px;
   border: none;
   background-color: var(--light-cyan);
-  align-items: center;
   justify-content: center;
   gap: 3px;
 }
 
 .back-button > svg {
-  width: 29px !important;
-  height: 29px !important;
+  width: 29px;
+  height: 29px;
+  padding-top: 11px;
 }
 
 .back-button > span {
   font-size: 30px;
   line-height: 36px;
+  padding-top: 9px;
 }
