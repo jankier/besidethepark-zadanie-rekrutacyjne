@@ -11,13 +11,13 @@
 
   .episodes-title {
     width: 332px !important;
-    padding-left: calc(50% - 180.3px) !important;
+    padding-left: calc(50% - 180.2px) !important;
     gap: 5px !important;
   }
 
   .episodes-title-text-black {
     font-size: 38px !important;
-    line-height: 42.2px !important;
+    line-height: 42px !important;
   }
 
   .episodes-title-text-cyan {
@@ -40,7 +40,7 @@
   .episodes-right {
     padding-left: calc(50% - 181px) !important;
     padding-top: 95px;
-    padding-bottom: 20px;
+    padding-bottom: 21px;
   }
 
   .episodes-episode {
@@ -54,22 +54,22 @@
 
   .episodes-no {
     font-size: 18px !important;
-    line-height: 21.6px !important;
-    padding-top: 20px !important;
+    line-height: 22px !important;
+    padding-top: 19px !important;
   }
 
   .episodes-info {
     border-left: none !important;
     border-bottom: 1px solid var(--light-gray1);
     padding-left: 0 !important;
-    gap: 13px !important;
-    padding-top: 12.6px !important;
-    padding-bottom: 20.3px !important;
+    gap: 14px !important;
+    padding-top: 13px !important;
+    padding-bottom: 19px !important;
   }
 
   .episodes-name {
     font-size: 18px !important;
-    line-height: 21.6px !important;
+    line-height: 22px !important;
   }
 
   .episodes-date {
@@ -150,10 +150,10 @@
   display: flex;
   flex-direction: column;
   border-left: 1px solid var(--light-gray1);
-  gap: 13px;
-  padding-left: 29.5px;
+  gap: 14px;
+  padding-left: 29.4px;
   padding-top: 18px;
-  padding-bottom: 21px;
+  padding-bottom: 20px;
 }
 
 .episodes-name {

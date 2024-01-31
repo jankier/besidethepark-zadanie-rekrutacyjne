@@ -7,7 +7,7 @@ import "./Characters.css";
 
 type EpisodeData = {
   id: number;
-  episode: string;
+  name: string;
   characters: string[];
 };
 
@@ -20,7 +20,7 @@ type CharacterData = {
 const Characters = () => {
   const { id } = useURLID();
 
-  const [episodeData, setEpisodeData] = useState<undefined | EpisodeData>();
+  const [episodeNum, setEpisodeNum] = useState<undefined | EpisodeData>();
 
   const [characters, setCharacters] = useState<undefined[] | CharacterData[]>(
     []
@@ -32,7 +32,7 @@ const Characters = () => {
         const episode_res = await fetch(
           `https://rickandmortyapi.com/api/episode/${id}`
         ).then((episode_res) => episode_res.json());
-        setEpisodeData(episode_res);
+        setEpisodeNum(episode_res);
 
         const char_ids = episode_res.characters
           .map((character: string) => character.split("/").pop())
@@ -49,7 +49,7 @@ const Characters = () => {
     fetchEpisodeData();
   }, [id]);
 
-  console.log(episodeData);
+  console.log(episodeNum);
 
   return (
     <section className="characters">
@@ -61,7 +61,7 @@ const Characters = () => {
           <span className="text text-400 characters-title-text-black">
             Characters of the <span className="text-700">4th</span>
             <br></br>
-            episode of the <span className="text-700">1st</span>
+            episode of the <span className="text-700">4th</span>
           </span>
           <span className="text text-400 characters-title-text-black-last">
             season of the series
