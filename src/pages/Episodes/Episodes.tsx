@@ -14,7 +14,7 @@ const Episodes = () => {
     created: string;
   };
 
-  const [episodesData, getEpisodesData] = useState<
+  const [episodesData, setEpisodesData] = useState<
     undefined[] | EpisodesData[]
   >([]);
 
@@ -25,7 +25,7 @@ const Episodes = () => {
           `https://rickandmortyapi.com/api/episode/?episode=S04`
         );
         const data = await res.json();
-        getEpisodesData(data.results);
+        setEpisodesData(data.results);
       } catch (error) {
         console.log(error);
       }
@@ -46,9 +46,9 @@ const Episodes = () => {
             Rick and Morty
           </span>
         </div>
-        <figure className="episodes-img">
+        <div className="episodes-img">
           <img src={title_img} alt="Rick and Morty show image" />
-        </figure>
+        </div>
       </div>
       <div className="episodes-right">
         {episodesData.map((episode) => {
@@ -59,7 +59,7 @@ const Episodes = () => {
             <Link
               key={episode?.id}
               className="episodes-episode text text-700"
-              to={`/characters?id=${episode?.id}`}
+              to={`/characters/${episode?.id}`}
             >
               <div className="episodes-no">{episode?.episode}</div>
               <div className="episodes-info">

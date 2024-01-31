@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/episodes" />} />
         <Route path="/episodes" element={<Episodes />} />
-        <Route path="/characters" element={<Characters />} />
-        <Route path="/character-detials" element={<CharacterDetails />} />
+        <Route path="/characters/:id" element={<Characters />} />
+        <Route path="/character-detials/:id" element={<CharacterDetails />} />
       </Routes>
       <Footer />
     </>
