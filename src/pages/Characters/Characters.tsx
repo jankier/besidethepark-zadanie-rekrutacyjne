@@ -5,12 +5,6 @@ import Button from "../../components/Button/Button";
 import title_img from "../../assets/image.png";
 import "./Characters.css";
 
-type EpisodeData = {
-  id: number;
-  name: string;
-  characters: string[];
-};
-
 type CharacterData = {
   id: number;
   name: string;
@@ -20,7 +14,7 @@ type CharacterData = {
 const Characters = () => {
   const { id } = useURLID();
 
-  const [episodeNum, setEpisodeNum] = useState<undefined | EpisodeData>();
+  const [episodeNum, setEpisodeNum] = useState<undefined | string>();
 
   const [characters, setCharacters] = useState<undefined[] | CharacterData[]>(
     []
@@ -32,7 +26,7 @@ const Characters = () => {
         const episode_res = await fetch(
           `https://rickandmortyapi.com/api/episode/${id}`
         ).then((episode_res) => episode_res.json());
-        setEpisodeNum(episode_res);
+        setEpisodeNum(episode_res.episode.split("E").pop());
 
         const char_ids = episode_res.characters
           .map((character: string) => character.split("/").pop())
@@ -49,7 +43,25 @@ const Characters = () => {
     fetchEpisodeData();
   }, [id]);
 
-  console.log(episodeNum);
+  let episode_num = "";
+
+  const episodeNumFormat = () => {
+    if (episodeNum !== undefined) {
+      const ep_num = parseInt(episodeNum, 10);
+      if (ep_num === 1) {
+        episode_num = ep_num + "st";
+      } else if (ep_num === 2) {
+        episode_num = ep_num + "nd";
+      } else if (ep_num === 3) {
+        episode_num = ep_num + "rd";
+      } else {
+        episode_num = ep_num + "th";
+      }
+      return episode_num;
+    }
+  };
+
+  episodeNumFormat();
 
   return (
     <section className="characters">
@@ -59,7 +71,7 @@ const Characters = () => {
         </div>
         <div className="characters-title">
           <span className="text text-400 characters-title-text-black">
-            Characters of the <span className="text-700">4th</span>
+            Characters of the <span className="text-700">{episode_num}</span>
             <br></br>
             episode of the <span className="text-700">4th</span>
           </span>
