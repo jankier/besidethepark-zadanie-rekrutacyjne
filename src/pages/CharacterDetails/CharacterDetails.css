@@ -1,4 +1,9 @@
 @media only screen and (max-width: 1060px) {
+  .character-details {
+    flex-direction: column !important;
+    margin-top: 30px !important;
+  }
+
   .character-details-button {
     margin-left: calc(50% - 181px) !important;
     width: 149px !important;
@@ -64,15 +69,48 @@
 .character-details-img {
   margin-left: 140px;
   margin-top: 12px;
-  width: 650px;
-  height: 650px;
-  background-color: var(--light-gray2);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.character-details-img > span {
-  font-size: 40px;
-  line-height: 48px;
+.character-details-img > img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+}
+
+.character-details-right {
+  margin-top: 109px;
+  margin-left: 206px;
+}
+
+.character-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 37px;
+}
+
+.character-details-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.character-details-info > div:nth-child(2n + 1) {
+  font-size: 25px;
+  line-height: 30px;
+  color: var(--cyan);
+}
+
+.character-details-info > div:nth-child(2n) {
+  font-size: 25px;
+  line-height: 30px;
+  color: var(--lime);
+}
+
+.character-details-info > div > :last-child {
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--medium-gray);
 }
