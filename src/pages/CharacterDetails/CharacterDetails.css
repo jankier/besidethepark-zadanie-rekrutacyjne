@@ -1,3 +1,23 @@
+@media only screen and (max-width: 1060px) {
+  .character-details-button {
+    margin-left: calc(50% - 181px) !important;
+    width: 149px !important;
+    height: 38px !important;
+  }
+
+  .character-details-button > svg {
+    width: 19px !important;
+    height: 19px !important;
+    padding-top: 9px !important;
+  }
+
+  .character-details-button > span {
+    font-size: 20px !important;
+    line-height: 24px !important;
+    padding-top: 8px !important;
+  }
+}
+
 .character-details {
   display: flex;
   user-select: none;
@@ -11,7 +31,22 @@
 }
 
 .character-details-button {
-  padding-left: 49.5px;
+  margin-left: 49.5px;
+  width: 206px;
+  height: 50px;
+  gap: 3px;
+}
+
+.character-details-button > svg {
+  width: 29px;
+  height: 29px;
+  padding-top: 11px;
+}
+
+.character-details-button > span {
+  font-size: 30px;
+  line-height: 36px;
+  padding-top: 9px;
 }
 
 .character-details-title {

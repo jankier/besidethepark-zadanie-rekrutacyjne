@@ -28,3 +28,11 @@
 .text-700 {
   font-weight: 700;
 }
+
+.back-button {
+  display: flex;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--light-cyan);
+  justify-content: center;
+}
