@@ -2,6 +2,11 @@
   .character-details {
     flex-direction: column !important;
     margin-top: 30px !important;
+    margin-bottom: 45px !important;
+  }
+
+  .character-details-left {
+    gap: 0 !important;
   }
 
   .character-details-button {
@@ -21,18 +26,79 @@
     line-height: 24px !important;
     padding-top: 8px !important;
   }
+
+  .character-details-title {
+    margin-top: 23px !important;
+    margin-left: calc(50% - 111px) !important;
+  }
+
+  .character-details-title-text-cyan {
+    font-size: 38px !important;
+    line-height: 46px !important;
+  }
+
+  .character-details-img {
+    margin-top: 41px !important;
+    margin-left: calc(50% - 208px) !important;
+  }
+
+  .character-details-img > img {
+    max-width: 320px !important;
+    max-height: 306px !important;
+  }
+
+  .character-details-right {
+    margin-top: 40px !important;
+  }
+
+  .character-details-right {
+    margin-top: 115px !important;
+    margin-left: calc(50% - 178px) !important;
+  }
+
+  .character-details-info {
+    gap: 21px !important;
+  }
+
+  .character-details-info > div {
+    width: 362px;
+    gap: 14px !important;
+    border-bottom: 1px solid var(--light-gray1);
+    padding-bottom: 18px;
+  }
+
+  .character-details-info > div:last-child {
+    border-bottom: none;
+  }
+
+  .character-details-info > div:nth-child(2n + 1) {
+    font-size: 18px !important;
+    line-height: 21px !important;
+  }
+
+  .character-details-info > div:nth-child(2n) {
+    font-size: 18px !important;
+    line-height: 21px !important;
+  }
+
+  .character-details-info > div > :last-child {
+    font-size: 15px !important;
+    line-height: 18px !important;
+  }
 }
 
 .character-details {
   display: flex;
   user-select: none;
   margin-top: 29.5px;
+  margin-bottom: 273px;
 }
 
 .character-details-left {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 66px;
+  flex-basis: 50%;
 }
 
 .character-details-button {
@@ -57,7 +123,7 @@
 .character-details-title {
   display: flex;
   flex-direction: column;
-  padding-left: 197px;
+  margin-left: 294px;
 }
 
 .character-details-title-text-cyan {
@@ -67,8 +133,10 @@
 }
 
 .character-details-img {
-  margin-left: 140px;
-  margin-top: 12px;
+  margin-left: 180px;
+  margin-top: 108px;
+  max-width: 650px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,13 +144,14 @@
 
 .character-details-img > img {
   width: 100%;
-  max-width: 650px;
   height: auto;
+  max-width: 650px;
 }
 
 .character-details-right {
+  display: flex;
   margin-top: 109px;
-  margin-left: 206px;
+  margin-left: 76px;
 }
 
 .character-details-info {
