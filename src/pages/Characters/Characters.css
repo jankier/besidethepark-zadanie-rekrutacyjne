@@ -18,7 +18,7 @@
   .characters-button > svg {
     width: 19px !important;
     height: 19px !important;
-    padding-top: 9px !important;
+    margin-top: 9px !important;
   }
 
   .characters-button > span {
@@ -29,9 +29,9 @@
 
   .characters-title {
     width: 370px !important;
-    padding-left: calc(50% - 178px) !important;
+    margin-left: calc(50% - 178px) !important;
     gap: 4px !important;
-    padding-top: 25px;
+    margin-top: 25px;
   }
 
   .characters-title-text-black {
@@ -50,8 +50,8 @@
   }
 
   .characters-img {
-    padding-left: calc(50% - 200px) !important;
-    padding-top: 28px !important;
+    margin-left: calc(50% - 160px) !important;
+    margin-top: 44px !important;
     max-height: 306px;
     overflow: hidden !important;
     display: flex;
@@ -63,9 +63,9 @@
   }
 
   .characters-right {
-    padding-left: calc(50% - 181px) !important;
-    padding-top: 99px !important;
-    padding-bottom: 21px;
+    margin-left: calc(50% - 181px) !important;
+    margin-top: 115px !important;
+    margin-bottom: 21px;
   }
 
   .characters-character {
@@ -78,7 +78,7 @@
   }
 
   .characters-character:first-child > .characters-info {
-    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 
   .characters-info {
@@ -86,7 +86,7 @@
     border-bottom: 1px solid var(--light-gray1);
     padding-left: 0 !important;
     gap: 14px !important;
-    padding-top: 20px !important;
+    margin-top: 20px !important;
     padding-bottom: 19px !important;
   }
 
@@ -118,12 +118,13 @@
   width: 181px;
   height: 50px;
   gap: 3px;
+  cursor: pointer;
 }
 
 .characters-button > svg {
   width: 29px;
   height: 29px;
-  padding-top: 11px;
+  margin-top: 11px;
 }
 
 .characters-button > span {
@@ -135,7 +136,7 @@
 .characters-title {
   display: flex;
   flex-direction: column;
-  padding-left: 197px;
+  margin-left: 197px;
 }
 
 .characters-title-text-black {
@@ -157,8 +158,8 @@
 }
 
 .characters-img {
-  padding-left: 140px;
-  padding-top: 12px;
+  margin-left: 180px;
+  margin-top: 28px;
 }
 
 .characters-img > img {
@@ -168,7 +169,8 @@
 }
 
 .characters-right {
-  padding-top: 109px;
+  margin-top: 109px;
+  margin-left: 193px;
 }
 
 .characters-character {
@@ -188,7 +190,6 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding-left: 169px;
   padding-bottom: 38px;
 }
 

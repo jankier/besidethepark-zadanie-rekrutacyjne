@@ -3,17 +3,14 @@ import { Link } from "react-router-dom";
 import title_img from "../../assets/image.png";
 import "./Episodes.css";
 
-const Episodes = () => {
-  type EpisodesData = {
-    id: number;
-    name: string;
-    air_date: string;
-    episode: string;
-    characters: string[];
-    url: string;
-    created: string;
-  };
+type EpisodesData = {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+};
 
+const Episodes = () => {
   const [episodesData, setEpisodesData] = useState<
     undefined[] | EpisodesData[]
   >([]);
@@ -21,11 +18,10 @@ const Episodes = () => {
   useEffect(() => {
     async function fetchEpisodesData() {
       try {
-        const res = await fetch(
+        const episodes_res = await fetch(
           `https://rickandmortyapi.com/api/episode/?episode=S04`
-        );
-        const data = await res.json();
-        setEpisodesData(data.results);
+        ).then((episodes_res) => episodes_res.json());
+        setEpisodesData(episodes_res.results);
       } catch (error) {
         console.log(error);
       }
@@ -52,9 +48,6 @@ const Episodes = () => {
       </div>
       <div className="episodes-right">
         {episodesData.map((episode) => {
-          if (episode === undefined) {
-            console.log(episode);
-          }
           return (
             <Link
               key={episode?.id}

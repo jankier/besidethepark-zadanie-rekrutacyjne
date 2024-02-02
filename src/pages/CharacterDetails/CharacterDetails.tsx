@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useURLID } from "../../hooks/useURLID";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./CharacterDetails.css";
 
 type CharacterData = {
@@ -19,6 +20,8 @@ type CharacterData = {
 
 const CharacterDetails = () => {
   const { id } = useURLID();
+  const navigate = useNavigate();
+  const { state } = useLocation();
 
   const [characterData, setCharacterData] = useState<
     undefined | CharacterData
@@ -38,12 +41,22 @@ const CharacterDetails = () => {
     fetchCharacterData();
   }, [id]);
 
-  console.log(characterData);
+  const navigateToPrevious = () => {
+    const { fromSpecificPage } = state || {};
+    if (fromSpecificPage) {
+      navigate(-1);
+    } else {
+      navigate("/episodes", { replace: true });
+    }
+  };
 
   return (
     <section className="character-details">
       <div className="character-details-left">
-        <button className="back-button character-details-button">
+        <button
+          className="back-button character-details-button"
+          onClick={navigateToPrevious}
+        >
           <svg
             viewBox="0 0 29 29"
             fill="none"

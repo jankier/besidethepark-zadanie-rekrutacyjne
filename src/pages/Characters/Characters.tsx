@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useURLID } from "../../hooks/useURLID";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import title_img from "../../assets/image.png";
 import "./Characters.css";
 
@@ -11,6 +11,8 @@ type CharacterData = {
 };
 
 const Characters = () => {
+  const navigate = useNavigate();
+
   const { id } = useURLID();
 
   const [episodeNum, setEpisodeNum] = useState<undefined | string>();
@@ -20,7 +22,7 @@ const Characters = () => {
   );
 
   useEffect(() => {
-    async function fetchEpisodeData() {
+    async function fetchCharacters() {
       try {
         const episode_res = await fetch(
           `https://rickandmortyapi.com/api/episode/${id}`
@@ -39,7 +41,7 @@ const Characters = () => {
         console.log(error);
       }
     }
-    fetchEpisodeData();
+    fetchCharacters();
   }, [id]);
 
   let episode_num = "";
@@ -65,7 +67,10 @@ const Characters = () => {
   return (
     <section className="characters">
       <div className="characters-left">
-        <button className="back-button characters-button">
+        <button
+          className="back-button characters-button"
+          onClick={() => navigate("/episodes")}
+        >
           <svg
             viewBox="0 0 29 29"
             fill="none"
@@ -91,9 +96,9 @@ const Characters = () => {
             Rick and Morty
           </span>
         </div>
-        <figure className="characters-img">
+        <div className="characters-img">
           <img src={title_img} alt="Rick and Morty show image" />
-        </figure>
+        </div>
       </div>
       <div className="characters-right">
         {characters.map((character) => {
@@ -104,6 +109,7 @@ const Characters = () => {
             <Link
               key={character?.id}
               className="characters-character text text-700"
+              state={{ fromSpecificPage: true }}
               to={`/character-detials/${character?.id}`}
             >
               <div className="characters-info">
