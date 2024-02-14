@@ -39,7 +39,7 @@
 
   .character-details-img {
     margin-top: 41px !important;
-    margin-left: calc(50% - 208px) !important;
+    margin-left: calc(50% - 161px) !important;
   }
 
   .character-details-img > img {
@@ -140,7 +140,6 @@
   height: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .character-details-img > img {
