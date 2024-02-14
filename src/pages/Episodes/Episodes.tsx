@@ -32,13 +32,14 @@ const Episodes = () => {
   return (
     <section className="episodes">
       <div className="episodes-left">
-        <div className="episodes-title">
+        <div data-testid="test-title-id" className="episodes-title">
           <span className="text text-400 episodes-title-text-black">
-            Episodes of the <span className="text-700">4th</span>
+            Episodes of the <span className="text-700">4th </span>
             <br></br>
             season of the series
           </span>
           <span className="text episodes-title-text-cyan text-700">
+            {" "}
             Rick and Morty
           </span>
         </div>
