@@ -83,14 +83,17 @@ const Characters = () => {
           </svg>
           <span className="text text-400">Episodes</span>
         </button>
-        <div className="characters-title">
+        <div
+          data-testid="test-title-characters-id"
+          className="characters-title"
+        >
           <span className="text text-400 characters-title-text-black">
             Characters of the <span className="text-700">{episode_num}</span>
             <br></br>
-            episode of the <span className="text-700">4th</span>
+            episode of the <span className="text-700">4th </span>
           </span>
           <span className="text text-400 characters-title-text-black-last">
-            season of the series
+            season of the series{" "}
           </span>
           <span className="text characters-title-text-cyan text-700">
             Rick and Morty
