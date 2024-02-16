@@ -113,7 +113,7 @@ const Characters = () => {
               key={character?.id}
               className="characters-character text text-700"
               state={{ fromSpecificPage: true }}
-              to={`/character-detials/${character?.id}`}
+              to={`/character-details/${character?.id}`}
             >
               <div className="characters-info">
                 <div className="characters-name">{character?.name}</div>

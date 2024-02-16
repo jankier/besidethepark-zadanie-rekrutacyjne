@@ -33,7 +33,7 @@ describe("Episodes", () => {
     );
     server.use(createGet([episode]));
     render(<Episodes />, { wrapper: BrowserRouter });
-    expect(screen.getByTestId("test-title-id").textContent).toBe(
+    expect(screen.getByTestId("test-title-episodes-id").textContent).toBe(
       "Episodes of the 4th season of the series Rick and Morty"
     );
     expect(screen.getByAltText("Rick and Morty show image"));
@@ -62,8 +62,8 @@ const createGet = (results: EpisodesData[]) => {
     never,
     never,
     EpisodesDataRes,
-    "https://rickandmortyapi.com/api/episode/?episode=S04"
-  >("https://rickandmortyapi.com/api/episode/?episode=S04", async () => {
+    "https://rickandmortyapi.com/api/episode/"
+  >("https://rickandmortyapi.com/api/episode/", async () => {
     return HttpResponse.json({
       results,
     });

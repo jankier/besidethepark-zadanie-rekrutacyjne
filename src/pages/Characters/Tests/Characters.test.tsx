@@ -30,10 +30,7 @@ afterAll(() => server.close());
 describe("Characters", () => {
   it("render characters page", async () => {
     const episode_data = createEpisodeData(
-      [
-        "https://rickandmortyapi.com/api/character/1",
-        "https://rickandmortyapi.com/api/character/2",
-      ],
+      ["https://rickandmortyapi.com/api/character/1"],
       "S04E01"
     );
     const character = createCharactersData(1, "Rick Sanchez", "Human");

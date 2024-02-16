@@ -32,7 +32,7 @@ const Episodes = () => {
   return (
     <section className="episodes">
       <div className="episodes-left">
-        <div data-testid="test-title-id" className="episodes-title">
+        <div data-testid="test-title-episodes-id" className="episodes-title">
           <span className="text text-400 episodes-title-text-black">
             Episodes of the <span className="text-700">4th </span>
             <br></br>
