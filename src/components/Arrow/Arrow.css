@@ -1,0 +1,11 @@
+.arrow-svg {
+    width: 29px;
+    height: 29px;
+}
+
+@media only screen and (max-width: 1060px) {
+    .arrow-svg {
+        width: 19px;
+        height: 19px;
+    }
+}

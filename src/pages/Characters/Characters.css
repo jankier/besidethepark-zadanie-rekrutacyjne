@@ -17,10 +17,8 @@
   cursor: pointer;
 }
 
-.characters-button > svg {
-  width: 29px;
-  height: 29px;
-  margin-top: 11px;
+.characters-button > .arrow-svg {
+  padding-top: 11px;
 }
 
 .characters-button > span {
@@ -117,10 +115,8 @@
     height: 38px;
   }
 
-  .characters-button > svg {
-    width: 19px;
-    height: 19px;
-    margin-top: 9px;
+  .characters-button > .arrow-svg {
+    padding-top: 9px;
   }
 
   .characters-button > span {
