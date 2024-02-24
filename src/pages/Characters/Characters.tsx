@@ -3,6 +3,7 @@ import { useURLID } from "../../hooks/useURLID";
 import { Link, useNavigate } from "react-router-dom";
 import title_img from "../../assets/image.png";
 import Arrow from "../../components/Arrow/Arrow";
+import Loader from "../../components/Loader/Loader";
 import "./Characters.css";
 
 type CharacterData = {
@@ -16,8 +17,8 @@ const Characters = () => {
 
   const { id } = useURLID();
 
+  const [isLoading, setIsLoading] = useState(true);
   const [episodeNum, setEpisodeNum] = useState<undefined | string>();
-
   const [characters, setCharacters] = useState<undefined[] | CharacterData[]>(
     []
   );
@@ -38,6 +39,7 @@ const Characters = () => {
           `https://rickandmortyapi.com/api/character/${char_ids}`
         ).then((character_res) => character_res.json());
         setCharacters(character_res);
+        setIsLoading(!isLoading);
       } catch (error) {
         console.log(error);
       }
@@ -67,54 +69,65 @@ const Characters = () => {
 
   return (
     <section className="characters">
-      <div className="characters-left">
-        <button
-          className="back-button characters-button"
-          onClick={() => navigate("/episodes")}
-        >
-          <Arrow />
-          <span className="text text-400">Episodes</span>
-        </button>
-        <div
-          data-testid="test-title-characters-id"
-          className="characters-title"
-        >
-          <span className="text text-400 characters-title-text-black">
-            Characters of the <span className="text-700">{episode_num}</span>
-            <br></br>
-            episode of the <span className="text-700">4th </span>
-          </span>
-          <span className="text text-400 characters-title-text-black-last">
-            season of the series{" "}
-          </span>
-          <span className="text characters-title-text-cyan text-700">
-            Rick and Morty
-          </span>
+      {isLoading ? (
+        <div className="characters-loading">
+          <Loader />
         </div>
-        <div className="characters-img">
-          <img src={title_img} alt="Rick and Morty show image" />
-        </div>
-      </div>
-      <div className="characters-right">
-        {characters.map((character) => {
-          if (character === undefined) {
-            console.log(character);
-          }
-          return (
-            <Link
-              key={character?.id}
-              className="characters-character text text-700"
-              state={{ fromSpecificPage: true }}
-              to={`/character-details/${character?.id}`}
+      ) : (
+        <>
+          <div className="characters-left">
+            <button
+              className="back-button characters-button"
+              onClick={() => navigate("/episodes")}
             >
-              <div className="characters-info">
-                <div className="characters-name">{character?.name}</div>
-                <div className="characters-species">{character?.species}</div>
-              </div>
-            </Link>
-          );
-        })}
-      </div>
+              <Arrow />
+              <span className="text text-400">Episodes</span>
+            </button>
+            <div
+              data-testid="test-title-characters-id"
+              className="characters-title"
+            >
+              <span className="text text-400 characters-title-text-black">
+                Characters of the{" "}
+                <span className="text-700">{episode_num}</span>
+                <br></br>
+                episode of the <span className="text-700">4th </span>
+              </span>
+              <span className="text text-400 characters-title-text-black-last">
+                season of the series{" "}
+              </span>
+              <span className="text characters-title-text-cyan text-700">
+                Rick and Morty
+              </span>
+            </div>
+            <div className="characters-img">
+              <img src={title_img} alt="Rick and Morty show image" />
+            </div>
+          </div>
+          <div className="characters-right">
+            {characters.map((character) => {
+              if (character === undefined) {
+                console.log(character);
+              }
+              return (
+                <Link
+                  key={character?.id}
+                  className="characters-character text text-700"
+                  state={{ fromSpecificPage: true }}
+                  to={`/character-details/${character?.id}`}
+                >
+                  <div className="characters-info">
+                    <div className="characters-name">{character?.name}</div>
+                    <div className="characters-species">
+                      {character?.species}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </>
+      )}
     </section>
   );
 };

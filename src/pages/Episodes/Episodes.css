@@ -3,6 +3,14 @@
   margin-top: 121px;
 }
 
+.episodes-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 429.5px);
+}
+
 .episodes-left {
   display: flex;
   flex-direction: column;
@@ -90,6 +98,10 @@
   .episodes {
     flex-direction: column;
     margin-top: 41px;
+  }
+
+  .episodes-loading {
+    height: calc(100vh - 187.23px);
   }
 
   .episodes-left {

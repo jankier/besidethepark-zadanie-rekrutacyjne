@@ -3,6 +3,14 @@
   margin-top: 29.5px;
 }
 
+.characters-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 338px);
+}
+
 .characters-left {
   display: flex;
   flex-direction: column;
@@ -102,6 +110,14 @@
   .characters {
     flex-direction: column;
     margin-top: 30px;
+  }
+
+  .characters-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 176.72px);
   }
 
   .characters-left {
