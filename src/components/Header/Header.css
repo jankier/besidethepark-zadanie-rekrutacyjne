@@ -1,32 +1,7 @@
-@media only screen and (max-width: 1060px) {
-  .header {
-    height: 71px !important;
-  }
-  .header-title {
-    width: 206px !important;
-    height: 36px !important;
-    top: 21px !important;
-    left: calc(50% - 101.5px) !important;
-    font-size: 30px !important;
-    font-weight: 700 !important;
-    line-height: 36px !important;
-  }
-  .header-rect-green {
-    width: 100% !important;
-  }
-  .header-rect-separator {
-    width: 0% !important;
-  }
-  .header-rect-cyan {
-    width: 0% !important;
-  }
-}
-
 .header {
   width: 100%;
   height: 95px;
   position: relative;
-  user-select: none;
 }
 
 .header-background {
@@ -62,14 +37,35 @@
 .header-title {
   position: absolute;
   color: var(--black);
-  width: 241px;
-  height: 42px;
-  top: 28px;
-  left: 65.5px;
+  top: 25px;
+  left: 66.5px;
   font-family: Lato;
   font-size: 35px;
   font-weight: 700;
   line-height: 42px;
-  letter-spacing: 0em;
+  letter-spacing: 0.2px;
   text-align: left;
+}
+
+@media only screen and (max-width: 1060px) {
+  .header {
+    height: 71px;
+  }
+  .header-title {
+    top: 19px;
+    left: calc(50% - 101.5px);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0.2px;
+  }
+  .header-rect-green {
+    width: 100%;
+  }
+  .header-rect-separator {
+    width: 0%;
+  }
+  .header-rect-cyan {
+    width: 0%;
+  }
 }

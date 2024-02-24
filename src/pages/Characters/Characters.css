@@ -1,109 +1,5 @@
-@media only screen and (max-width: 1060px) {
-  .characters {
-    flex-direction: column !important;
-    margin-top: 30px !important;
-  }
-
-  .characters-left {
-    align-items: start !important;
-    gap: 0 !important;
-  }
-
-  .characters-button {
-    margin-left: calc(50% - 181px) !important;
-    width: 132px !important;
-    height: 38px !important;
-  }
-
-  .characters-button > svg {
-    width: 19px !important;
-    height: 19px !important;
-    margin-top: 9px !important;
-  }
-
-  .characters-button > span {
-    font-size: 20px !important;
-    line-height: 24px !important;
-    padding-top: 8px !important;
-  }
-
-  .characters-title {
-    width: 370px !important;
-    margin-left: calc(50% - 178px) !important;
-    gap: 4px !important;
-    margin-top: 25px;
-  }
-
-  .characters-title-text-black {
-    font-size: 38px !important;
-    line-height: 42px !important;
-  }
-
-  .characters-title-text-black-last {
-    font-size: 38px !important;
-    line-height: 42px !important;
-  }
-
-  .characters-title-text-cyan {
-    font-size: 38px !important;
-    line-height: 39px !important;
-  }
-
-  .characters-img {
-    margin-left: calc(50% - 160px) !important;
-    margin-top: 44px !important;
-    max-height: 306px;
-    overflow: hidden !important;
-    display: flex;
-  }
-
-  .characters-img > img {
-    width: 320px !important;
-    object-fit: cover;
-  }
-
-  .characters-right {
-    margin-left: calc(50% - 181px) !important;
-    margin-top: 115px !important;
-    margin-bottom: 21px;
-  }
-
-  .characters-character {
-    flex-direction: column !important;
-    max-width: 362px;
-  }
-
-  .characters-character:last-child > .characters-info {
-    border-bottom: none;
-  }
-
-  .characters-character:first-child > .characters-info {
-    margin-top: 0 !important;
-  }
-
-  .characters-info {
-    border-left: none !important;
-    border-bottom: 1px solid var(--light-gray1);
-    padding-left: 0 !important;
-    gap: 14px !important;
-    margin-top: 20px !important;
-    padding-bottom: 19px !important;
-  }
-
-  .characters-name {
-    font-size: 18px !important;
-    line-height: 21px !important;
-  }
-
-  .characters-species {
-    font-size: 15px !important;
-    line-height: 18px !important;
-  }
-}
-
 .characters {
   display: flex;
-  user-select: none;
   margin-top: 29.5px;
 }
 
@@ -202,4 +98,106 @@
   font-size: 20px;
   line-height: 24px;
   color: var(--medium-gray);
+}
+
+@media only screen and (max-width: 1060px) {
+  .characters {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  .characters-left {
+    align-items: start;
+    gap: 0;
+  }
+
+  .characters-button {
+    margin-left: calc(50% - 181px);
+    width: 132px;
+    height: 38px;
+  }
+
+  .characters-button > svg {
+    width: 19px;
+    height: 19px;
+    margin-top: 9px;
+  }
+
+  .characters-button > span {
+    font-size: 20px;
+    line-height: 24px;
+    padding-top: 8px;
+  }
+
+  .characters-title {
+    margin-left: calc(50% - 178px);
+    gap: 4px;
+    margin-top: 25px;
+  }
+
+  .characters-title-text-black {
+    font-size: 38px;
+    line-height: 42px;
+  }
+
+  .characters-title-text-black-last {
+    font-size: 38px;
+    line-height: 42px;
+  }
+
+  .characters-title-text-cyan {
+    font-size: 38px;
+    line-height: 39px;
+  }
+
+  .characters-img {
+    margin-left: calc(50% - 160px);
+    margin-top: 44px;
+    max-height: 306px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .characters-img > img {
+    width: 320px;
+    object-fit: cover;
+  }
+
+  .characters-right {
+    margin-left: calc(50% - 181px);
+    margin-top: 115px;
+    margin-bottom: 21px;
+  }
+
+  .characters-character {
+    flex-direction: column;
+    max-width: 362px;
+  }
+
+  .characters-character:last-child > .characters-info {
+    border-bottom: none;
+  }
+
+  .characters-character:first-child > .characters-info {
+    margin-top: 0;
+  }
+
+  .characters-info {
+    border-left: none;
+    border-bottom: 1px solid var(--light-gray1);
+    padding-left: 0;
+    gap: 14px;
+    margin-top: 20px;
+    padding-bottom: 19px;
+  }
+
+  .characters-name {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .characters-species {
+    font-size: 15px;
+    line-height: 18px;
+  }
 }
