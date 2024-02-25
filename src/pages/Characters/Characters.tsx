@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useURLID } from "../../hooks/useURLID";
 import { Link, useNavigate } from "react-router-dom";
+import { useErrorBoundary } from "react-error-boundary";
 import title_img from "../../assets/image.png";
 import Arrow from "../../components/Arrow/Arrow";
 import Loader from "../../components/Loader/Loader";
@@ -14,9 +15,8 @@ type CharacterData = {
 
 const Characters = () => {
   const navigate = useNavigate();
-
   const { id } = useURLID();
-
+  const { showBoundary } = useErrorBoundary();
   const [isLoading, setIsLoading] = useState(true);
   const [episodeNum, setEpisodeNum] = useState<undefined | string>();
   const [characters, setCharacters] = useState<undefined[] | CharacterData[]>(
@@ -41,7 +41,7 @@ const Characters = () => {
         setCharacters(character_res);
         setIsLoading(!isLoading);
       } catch (error) {
-        console.log(error);
+        showBoundary(error);
       }
     }
     fetchCharacters();

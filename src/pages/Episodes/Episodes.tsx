@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useErrorBoundary } from "react-error-boundary";
 import title_img from "../../assets/image.png";
 import Loader from "../../components/Loader/Loader";
 import "./Episodes.css";
@@ -12,6 +13,7 @@ type EpisodesData = {
 };
 
 const Episodes = () => {
+  const { showBoundary } = useErrorBoundary();
   const [isLoading, setIsLoading] = useState(true);
   const [episodesData, setEpisodesData] = useState<
     undefined[] | EpisodesData[]
@@ -20,13 +22,19 @@ const Episodes = () => {
   useEffect(() => {
     async function fetchEpisodesData() {
       try {
-        const episodes_res = await fetch(
-          `https://rickandmortyapi.com/api/episode/?episode=S04`
-        ).then((episodes_res) => episodes_res.json());
-        setEpisodesData(episodes_res.results);
-        setIsLoading(!isLoading);
+        await fetch(`https://rickandmortyapi.com/api/episode/?episode=S04`)
+          .then((episodes_res) => episodes_res.json())
+          .then((episodes_res) => {
+            if (!episodes_res.error) {
+              setEpisodesData(episodes_res.results);
+              setIsLoading(!isLoading);
+            } else {
+              console.log(episodes_res.error);
+              showBoundary(episodes_res.error);
+            }
+          });
       } catch (error) {
-        console.log(error);
+        showBoundary(error);
       }
     }
     fetchEpisodesData();
