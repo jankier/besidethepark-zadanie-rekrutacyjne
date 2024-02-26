@@ -37,7 +37,7 @@
 .header-title {
   position: absolute;
   color: var(--black);
-  top: 25px;
+  top: 24px;
   left: 66.5px;
   font-family: Lato;
   font-size: 35px;
@@ -52,7 +52,7 @@
     height: 71px;
   }
   .header-title {
-    top: 19px;
+    top: 18px;
     left: calc(50% - 101.5px);
     font-size: 30px;
     font-weight: 700;

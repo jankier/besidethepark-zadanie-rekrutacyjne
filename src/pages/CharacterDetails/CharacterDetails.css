@@ -14,7 +14,7 @@
 .character-details-left {
   display: flex;
   flex-direction: column;
-  gap: 66px;
+  gap: 60px;
   flex-basis: 50%;
 }
 
@@ -33,7 +33,7 @@
 .character-details-button > span {
   font-size: 30px;
   line-height: 36px;
-  padding-top: 9px;
+  padding-top: 6px;
 }
 
 .character-details-title {
@@ -50,7 +50,7 @@
 
 .character-details-img {
   margin-left: 180px;
-  margin-top: 108px;
+  margin-top: 119px;
   max-width: 650px;
   height: auto;
   display: flex;
@@ -65,7 +65,7 @@
 
 .character-details-right {
   display: flex;
-  margin-top: 109px;
+  margin-top: 106px;
   margin-left: 76px;
   margin-bottom: 273px;
 }
@@ -127,11 +127,11 @@
   .character-details-button > span {
     font-size: 20px;
     line-height: 24px;
-    padding-top: 8px;
+    padding-top: 6px;
   }
 
   .character-details-title {
-    margin-top: 23px;
+    margin-top: 21px;
     margin-left: calc(50% - 111px);
   }
 
@@ -141,7 +141,7 @@
   }
 
   .character-details-img {
-    margin-top: 41px;
+    margin-top: 43px;
     margin-left: calc(50% - 161px);
   }
 
@@ -151,13 +151,9 @@
   }
 
   .character-details-right {
-    margin-top: 40px;
-    margin-bottom: 45px;
-  }
-
-  .character-details-right {
-    margin-top: 115px;
+    margin-top: 113px;
     margin-left: calc(50% - 178px);
+    margin-bottom: 21px;
   }
 
   .character-details-info {

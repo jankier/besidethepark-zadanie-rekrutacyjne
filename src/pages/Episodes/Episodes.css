@@ -1,6 +1,6 @@
 .episodes {
   display: flex;
-  margin-top: 121px;
+  margin-top: 115px;
 }
 
 .episodes-loading {
@@ -15,26 +15,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 64px;
+  gap: 70px;
 }
 
 .episodes-title {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding-left: 172px;
+  padding-left: 173px;
 }
 
 .episodes-title-text-black {
+  text-align: left;
   font-size: 70px;
   line-height: 72px;
   color: var(--black);
+  word-spacing: 4px;
 }
 
 .episodes-title-text-cyan {
   font-size: 70px;
   line-height: 84px;
   color: var(--cyan);
+  word-spacing: 1px;
 }
 
 .episodes-img {
@@ -48,6 +51,7 @@
 }
 
 .episodes-right {
+  padding-top: 3px;
   padding-left: 209px;
 }
 
@@ -97,7 +101,7 @@
 @media only screen and (max-width: 1060px) {
   .episodes {
     flex-direction: column;
-    margin-top: 41px;
+    margin-top: 38px;
   }
 
   .episodes-loading {
@@ -106,7 +110,7 @@
 
   .episodes-left {
     align-items: start;
-    gap: 44px;
+    gap: 47px;
   }
 
   .episodes-title {
@@ -117,11 +121,13 @@
   .episodes-title-text-black {
     font-size: 38px;
     line-height: 42px;
+    word-spacing: 2px;
   }
 
   .episodes-title-text-cyan {
     font-size: 38px;
     line-height: 40px;
+    word-spacing: 0.2px;
   }
 
   .episodes-img {
@@ -138,8 +144,8 @@
 
   .episodes-right {
     padding-left: calc(50% - 181px);
-    padding-top: 95px;
-    padding-bottom: 21px;
+    padding-top: 93px;
+    padding-bottom: 24px;
   }
 
   .episodes-episode {

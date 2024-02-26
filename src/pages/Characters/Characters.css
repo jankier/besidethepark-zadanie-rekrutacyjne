@@ -14,7 +14,7 @@
 .characters-left {
   display: flex;
   flex-direction: column;
-  gap: 42px;
+  gap: 35px;
 }
 
 .characters-button {
@@ -32,7 +32,7 @@
 .characters-button > span {
   font-size: 30px;
   line-height: 36px;
-  padding-top: 9px;
+  padding-top: 7px;
 }
 
 .characters-title {
@@ -61,7 +61,7 @@
 
 .characters-img {
   margin-left: 180px;
-  margin-top: 28px;
+  margin-top: 41px;
 }
 
 .characters-img > img {
@@ -71,8 +71,8 @@
 }
 
 .characters-right {
-  margin-top: 109px;
-  margin-left: 193px;
+  margin-top: 106px;
+  margin-left: 196px;
 }
 
 .characters-character {
@@ -138,18 +138,20 @@
   .characters-button > span {
     font-size: 20px;
     line-height: 24px;
-    padding-top: 8px;
+    padding-top: 6px;
   }
 
   .characters-title {
     margin-left: calc(50% - 178px);
     gap: 4px;
-    margin-top: 25px;
+    margin-top: 22px;
   }
 
   .characters-title-text-black {
     font-size: 38px;
     line-height: 42px;
+    word-spacing: 0px;
+    letter-spacing: 0px;
   }
 
   .characters-title-text-black-last {
@@ -164,7 +166,7 @@
 
   .characters-img {
     margin-left: calc(50% - 160px);
-    margin-top: 44px;
+    margin-top: 47px;
     max-height: 306px;
     overflow: hidden;
     display: flex;
@@ -177,7 +179,7 @@
 
   .characters-right {
     margin-left: calc(50% - 181px);
-    margin-top: 115px;
+    margin-top: 113px;
     margin-bottom: 21px;
   }
 
