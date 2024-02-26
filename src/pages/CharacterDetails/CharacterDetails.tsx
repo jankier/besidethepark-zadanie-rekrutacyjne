@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useURLID } from "../../hooks/useURLID";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useErrorBoundary } from "react-error-boundary";
+import { useQuery, gql } from "@apollo/client";
 import Arrow from "../../components/Arrow/Arrow";
 import Loader from "../../components/Loader/Loader";
 import "./CharacterDetails.css";
@@ -26,25 +27,40 @@ const CharacterDetails = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { showBoundary } = useErrorBoundary();
-  const [isLoading, setIsLoading] = useState(true);
   const [characterData, setCharacterData] = useState<
     undefined | CharacterData
   >();
 
-  useEffect(() => {
-    async function fetchCharacterData() {
-      try {
-        const character_data_res = await fetch(
-          `https://rickandmortyapi.com/api/character/${id}`
-        ).then((character_data_res) => character_data_res.json());
-        setCharacterData(character_data_res);
-        setIsLoading(!isLoading);
-      } catch (error) {
-        showBoundary(error);
+  const GET_CHARACTER_DATA = gql`
+    query CharacterData {
+      character(id: ${id}){
+        name
+        status
+        species
+        type
+        gender
+        origin {
+          name
+        }
+        location {
+          name
+        }
+        image
       }
     }
-    fetchCharacterData();
-  }, [id]);
+  `;
+
+  const { loading, error, data } = useQuery(GET_CHARACTER_DATA);
+
+  useEffect(() => {
+    if (error) {
+      showBoundary(error);
+    } else {
+      if (data) {
+        setCharacterData(data.character);
+      }
+    }
+  }, [data, error, showBoundary]);
 
   const navigateToPrevious = () => {
     const { fromSpecificPage } = state || {};
@@ -57,7 +73,7 @@ const CharacterDetails = () => {
 
   return (
     <section className="character-details">
-      {isLoading ? (
+      {loading ? (
         <div className="character-details-loading">
           <Loader />
         </div>

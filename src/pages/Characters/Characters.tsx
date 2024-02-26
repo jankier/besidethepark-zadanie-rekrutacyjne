@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useURLID } from "../../hooks/useURLID";
 import { Link, useNavigate } from "react-router-dom";
 import { useErrorBoundary } from "react-error-boundary";
+import { useQuery, gql } from "@apollo/client";
 import title_img from "../../assets/image.png";
 import Arrow from "../../components/Arrow/Arrow";
 import Loader from "../../components/Loader/Loader";
@@ -17,35 +18,36 @@ const Characters = () => {
   const navigate = useNavigate();
   const { id } = useURLID();
   const { showBoundary } = useErrorBoundary();
-  const [isLoading, setIsLoading] = useState(true);
   const [episodeNum, setEpisodeNum] = useState<undefined | string>();
   const [characters, setCharacters] = useState<undefined[] | CharacterData[]>(
     []
   );
 
-  useEffect(() => {
-    async function fetchCharacters() {
-      try {
-        const episode_res = await fetch(
-          `https://rickandmortyapi.com/api/episode/${id}`
-        ).then((episode_res) => episode_res.json());
-        setEpisodeNum(episode_res.episode.split("E").pop());
-
-        const char_ids = episode_res.characters
-          .map((character: string) => character.split("/").pop())
-          .join(",");
-
-        const character_res = await fetch(
-          `https://rickandmortyapi.com/api/character/${char_ids}`
-        ).then((character_res) => character_res.json());
-        setCharacters(character_res);
-        setIsLoading(!isLoading);
-      } catch (error) {
-        showBoundary(error);
+  const GET_CHARACTERS = gql`
+  query CharactersData {
+    episode(id: ${id}) {
+      episode
+      characters {
+        id
+        name
+        species
       }
     }
-    fetchCharacters();
-  }, [id]);
+  }
+`;
+
+  const { loading, error, data } = useQuery(GET_CHARACTERS);
+
+  useEffect(() => {
+    if (error) {
+      showBoundary(error);
+    } else {
+      if (data) {
+        setEpisodeNum(data.episode.episode.split("E").pop());
+        setCharacters(data.episode.characters);
+      }
+    }
+  }, [data, error, showBoundary]);
 
   let episode_num = "";
 
@@ -69,7 +71,7 @@ const Characters = () => {
 
   return (
     <section className="characters">
-      {isLoading ? (
+      {loading ? (
         <div className="characters-loading">
           <Loader />
         </div>

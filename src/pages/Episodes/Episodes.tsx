@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useErrorBoundary } from "react-error-boundary";
+import { useQuery, gql } from "@apollo/client";
 import title_img from "../../assets/image.png";
 import Loader from "../../components/Loader/Loader";
 import "./Episodes.css";
@@ -14,35 +15,38 @@ type EpisodesData = {
 
 const Episodes = () => {
   const { showBoundary } = useErrorBoundary();
-  const [isLoading, setIsLoading] = useState(true);
   const [episodesData, setEpisodesData] = useState<
     undefined[] | EpisodesData[]
   >([]);
 
-  useEffect(() => {
-    async function fetchEpisodesData() {
-      try {
-        await fetch(`https://rickandmortyapi.com/api/episode/?episode=S04`)
-          .then((episodes_res) => episodes_res.json())
-          .then((episodes_res) => {
-            if (!episodes_res.error) {
-              setEpisodesData(episodes_res.results);
-              setIsLoading(!isLoading);
-            } else {
-              console.log(episodes_res.error);
-              showBoundary(episodes_res.error);
-            }
-          });
-      } catch (error) {
-        showBoundary(error);
+  const GET_EPISODES = gql`
+    query EpisodesData {
+      episodes(filter: { episode: "S04" }) {
+        results {
+          id
+          name
+          air_date
+          episode
+        }
       }
     }
-    fetchEpisodesData();
-  }, []);
+  `;
+
+  const { loading, error, data } = useQuery(GET_EPISODES);
+
+  useEffect(() => {
+    if (error) {
+      showBoundary(error);
+    } else {
+      if (data) {
+        setEpisodesData(data.episodes.results);
+      }
+    }
+  }, [data, error, showBoundary]);
 
   return (
     <section className="episodes">
-      {isLoading ? (
+      {loading ? (
         <div className="episodes-loading">
           <Loader />
         </div>
