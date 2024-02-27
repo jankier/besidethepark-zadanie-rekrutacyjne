@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useErrorBoundary } from "react-error-boundary";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GET_EPISODES } from "../../GraphQL/Queries";
 import title_img from "../../assets/image.png";
 import Loader from "../../components/Loader/Loader";
 import "./Episodes.css";
@@ -19,20 +20,11 @@ const Episodes = () => {
     undefined[] | EpisodesData[]
   >([]);
 
-  const GET_EPISODES = gql`
-    query EpisodesData {
-      episodes(filter: { episode: "S04" }) {
-        results {
-          id
-          name
-          air_date
-          episode
-        }
-      }
-    }
-  `;
+  const episodeFilter = "S04";
 
-  const { loading, error, data } = useQuery(GET_EPISODES);
+  const { loading, error, data } = useQuery(GET_EPISODES, {
+    variables: { episodeFilter },
+  });
 
   useEffect(() => {
     if (error) {

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useURLID } from "../../hooks/useURLID";
 import { Link, useNavigate } from "react-router-dom";
 import { useErrorBoundary } from "react-error-boundary";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GET_CHARACTERS } from "../../GraphQL/Queries";
 import title_img from "../../assets/image.png";
 import Arrow from "../../components/Arrow/Arrow";
 import Loader from "../../components/Loader/Loader";
@@ -23,20 +24,9 @@ const Characters = () => {
     []
   );
 
-  const GET_CHARACTERS = gql`
-  query CharactersData {
-    episode(id: ${id}) {
-      episode
-      characters {
-        id
-        name
-        species
-      }
-    }
-  }
-`;
-
-  const { loading, error, data } = useQuery(GET_CHARACTERS);
+  const { loading, error, data } = useQuery(GET_CHARACTERS, {
+    variables: { id },
+  });
 
   useEffect(() => {
     if (error) {

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useURLID } from "../../hooks/useURLID";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useErrorBoundary } from "react-error-boundary";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GET_CHARACTER_DATA } from "../../GraphQL/Queries";
 import Arrow from "../../components/Arrow/Arrow";
 import Loader from "../../components/Loader/Loader";
 import "./CharacterDetails.css";
@@ -31,26 +32,9 @@ const CharacterDetails = () => {
     undefined | CharacterData
   >();
 
-  const GET_CHARACTER_DATA = gql`
-    query CharacterData {
-      character(id: ${id}){
-        name
-        status
-        species
-        type
-        gender
-        origin {
-          name
-        }
-        location {
-          name
-        }
-        image
-      }
-    }
-  `;
-
-  const { loading, error, data } = useQuery(GET_CHARACTER_DATA);
+  const { loading, error, data } = useQuery(GET_CHARACTER_DATA, {
+    variables: { id },
+  });
 
   useEffect(() => {
     if (error) {
