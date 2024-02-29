@@ -6,7 +6,7 @@
   gap: 20px;
   width: 100%;
   margin-top: 100px;
-  height: calc(100vh - 410.73px);
+  height: calc(100vh - 408.23px);
 }
 
 .error-text {
@@ -48,7 +48,7 @@
 @media only screen and (max-width: 1060px) {
   .error-page {
     margin-top: 0px;
-    height: calc(100vh - 145.72px);
+    height: calc(100vh - 143.72px);
   }
 
   .error-text {

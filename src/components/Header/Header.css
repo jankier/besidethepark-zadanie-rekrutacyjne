@@ -37,14 +37,10 @@
 .header-title {
   position: absolute;
   color: var(--black);
-  top: 24px;
-  left: 66.5px;
-  font-family: Lato;
+  top: 28px;
+  left: 65.5px;
   font-size: 35px;
-  font-weight: 700;
   line-height: 42px;
-  letter-spacing: 0.2px;
-  text-align: left;
 }
 
 @media only screen and (max-width: 1060px) {
@@ -52,12 +48,10 @@
     height: 71px;
   }
   .header-title {
-    top: 18px;
+    top: 21px;
     left: calc(50% - 101.5px);
     font-size: 30px;
-    font-weight: 700;
     line-height: 36px;
-    letter-spacing: 0.2px;
   }
   .header-rect-green {
     width: 100%;

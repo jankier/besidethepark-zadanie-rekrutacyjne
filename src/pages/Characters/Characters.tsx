@@ -78,14 +78,14 @@ const Characters = () => {
             <div className="characters-title">
               <span className="text text-400 characters-title-text-black">
                 Characters of the{" "}
-                <span className="text-700">{episode_num}</span>
+                <span className="text-bold">{episode_num}</span>
                 <br></br>
-                episode of the <span className="text-700">4th </span>
+                episode of the <span className="text-bold">4th </span>
               </span>
               <span className="text text-400 characters-title-text-black-last">
                 season of the series{" "}
               </span>
-              <span className="text characters-title-text-cyan text-700">
+              <span className="text-bold characters-title-text-cyan text-400">
                 Rick and Morty
               </span>
             </div>
@@ -101,7 +101,7 @@ const Characters = () => {
               return (
                 <Link
                   key={character?.id}
-                  className="characters-character text text-700"
+                  className="characters-character text-bold text-400"
                   state={{ fromSpecificPage: true }}
                   to={`/character-details/${character?.id}`}
                 >

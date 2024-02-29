@@ -47,11 +47,11 @@ const Episodes = () => {
           <div className="episodes-left">
             <div className="episodes-title">
               <span className="text text-400 episodes-title-text-black">
-                Episodes of the <span className="text-700">4th </span>
+                Episodes of the <span className="text-bold">4th </span>
                 <br></br>
                 season of the series
               </span>
-              <span className="text episodes-title-text-cyan text-700">
+              <span className="text-bold episodes-title-text-cyan text-400">
                 {" "}
                 Rick and Morty
               </span>
@@ -65,7 +65,7 @@ const Episodes = () => {
               return (
                 <Link
                   key={episode?.id}
-                  className="episodes-episode text text-700"
+                  className="episodes-episode text-bold text-400"
                   to={`/characters/${episode?.id}`}
                 >
                   <div className="episodes-no">{episode?.episode}</div>

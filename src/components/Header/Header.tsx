@@ -8,7 +8,7 @@ const Header = () => {
         <div className="header-rect-separator"></div>
         <div className="header-rect-cyan"></div>
       </div>
-      <div className="header-title">LOREM IPSUM</div>
+      <div className="header-title text-bold text-400">LOREM IPSUM</div>
     </header>
   );
 };

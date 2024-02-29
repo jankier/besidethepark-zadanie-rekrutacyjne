@@ -1,6 +1,7 @@
 .characters {
   display: flex;
   margin-top: 29.5px;
+  padding-bottom: 37.77px;
 }
 
 .characters-loading {
@@ -8,13 +9,14 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 338px);
+  padding-top: 100px;
+  height: calc(100vh - 475.5px);
 }
 
 .characters-left {
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 42px;
 }
 
 .characters-button {
@@ -32,7 +34,7 @@
 .characters-button > span {
   font-size: 30px;
   line-height: 36px;
-  padding-top: 7px;
+  padding-top: 9px;
 }
 
 .characters-title {
@@ -61,7 +63,7 @@
 
 .characters-img {
   margin-left: 180px;
-  margin-top: 41px;
+  margin-top: 28px;
 }
 
 .characters-img > img {
@@ -71,8 +73,8 @@
 }
 
 .characters-right {
-  margin-top: 106px;
-  margin-left: 196px;
+  margin-top: 109px;
+  margin-left: 193px;
 }
 
 .characters-character {
@@ -110,6 +112,7 @@
   .characters {
     flex-direction: column;
     margin-top: 30px;
+    padding-bottom: 0px;
   }
 
   .characters-loading {
@@ -117,12 +120,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 176.72px);
+    padding-top: 0px;
+    height: calc(100vh - 173.72px);
   }
 
   .characters-left {
     align-items: start;
-    gap: 0;
+    gap: 3px;
   }
 
   .characters-button {
@@ -138,7 +142,7 @@
   .characters-button > span {
     font-size: 20px;
     line-height: 24px;
-    padding-top: 6px;
+    padding-top: 8px;
   }
 
   .characters-title {
@@ -162,11 +166,12 @@
   .characters-title-text-cyan {
     font-size: 38px;
     line-height: 39px;
+    margin-left: -2px;
   }
 
   .characters-img {
     margin-left: calc(50% - 160px);
-    margin-top: 47px;
+    margin-top: 41px;
     max-height: 306px;
     overflow: hidden;
     display: flex;
@@ -179,8 +184,8 @@
 
   .characters-right {
     margin-left: calc(50% - 181px);
-    margin-top: 113px;
-    margin-bottom: 21px;
+    margin-top: 115px;
+    margin-bottom: 88px;
   }
 
   .characters-character {
@@ -201,8 +206,8 @@
     border-bottom: 1px solid var(--light-gray1);
     padding-left: 0;
     gap: 14px;
-    margin-top: 20px;
-    padding-bottom: 19px;
+    margin-top: 21px;
+    padding-bottom: 18px;
   }
 
   .characters-name {

@@ -75,7 +75,7 @@ const CharacterDetails = () => {
               <span className="text text-400">Characters</span>
             </button>
             <div className="character-details-title">
-              <span className="text text-700 character-details-title-text-cyan">
+              <span className="text-bold text-400 character-details-title-text-cyan">
                 {characterData?.name}
               </span>
             </div>
@@ -84,7 +84,7 @@ const CharacterDetails = () => {
             </div>
           </div>
           <div className="character-details-right">
-            <div className="text text-700 character-details-info">
+            <div className="text-bold text-400 character-details-info">
               <div className="character-status">
                 <span>{characterData?.status}</span>
                 <span>Status</span>
