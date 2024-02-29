@@ -33,6 +33,7 @@ const Characters = () => {
       showBoundary(error);
     } else {
       if (data) {
+        console.log(data);
         setEpisodeNum(data.episode.episode.split("E").pop());
         setCharacters(data.episode.characters);
       }
