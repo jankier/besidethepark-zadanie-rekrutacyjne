@@ -1,6 +1,7 @@
 .character-details {
   display: flex;
   margin-top: 29.5px;
+  padding-bottom: 126px;
 }
 
 .character-details-loading {
@@ -8,7 +9,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 338px);
+  padding-top: 200px;
+  height: calc(100vh - 666.23px);
 }
 
 .character-details-left {
@@ -104,10 +106,12 @@
   .character-details {
     flex-direction: column;
     margin-top: 30px;
+    padding-bottom: 21px;
   }
 
   .character-details-loading {
-    height: calc(100vh - 176.72px);
+    padding-top: 0px;
+    height: calc(100vh - 196.72px);
   }
 
   .character-details-left {
@@ -153,7 +157,7 @@
   .character-details-right {
     margin-top: 113px;
     margin-left: calc(50% - 178px);
-    margin-bottom: 21px;
+    margin-bottom: 0px;
   }
 
   .character-details-info {
