@@ -41,6 +41,7 @@ const CharacterDetails = () => {
       showBoundary(error);
     } else {
       if (data) {
+        console.log(data);
         setCharacterData(data.character);
       }
     }
@@ -58,7 +59,10 @@ const CharacterDetails = () => {
   return (
     <section className="character-details">
       {loading ? (
-        <div className="character-details-loading">
+        <div
+          data-testid="loader-character-details-id"
+          className="character-details-loading"
+        >
           <Loader />
         </div>
       ) : (
