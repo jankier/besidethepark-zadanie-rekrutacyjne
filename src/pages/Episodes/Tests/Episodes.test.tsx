@@ -1,71 +1,103 @@
 import "@testing-library/jest-dom/vitest";
-import { describe, it, expect, beforeAll, afterEach, afterAll } from "vitest";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { http, HttpResponse } from "msw";
-import { setupServer } from "msw/node";
 import { BrowserRouter } from "react-router-dom";
+import { GET_EPISODES } from "../../../GraphQL/Queries";
+import { MockedProvider } from "@apollo/client/testing";
+import { GraphQLError } from "graphql";
+import { ErrorBoundary } from "react-error-boundary";
+import FetchingError from "../../../components/FetchingError/FetchingError.tsx";
 import Episodes from "../Episodes.tsx";
 
-type EpisodesData = {
-  id: number;
-  name: string;
-  air_date: string;
-  episode: string;
-};
-
-type EpisodesDataRes = {
-  results: EpisodesData[];
-};
-
-const server = setupServer();
-
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
-
 describe("Episodes", () => {
-  it("render episodes page", async () => {
-    const episode = createEpisodeData(
-      32,
-      "Edge of Tomorty: Rick, Die, Rickpeat",
-      "November 10, 2019",
-      "S04E01"
+  const episodesMock = {
+    delay: 30,
+    request: {
+      query: GET_EPISODES,
+      variables: {
+        episodeFilter: "S04",
+      },
+    },
+    result: {
+      data: {
+        episodes: {
+          results: [
+            {
+              id: 32,
+              name: "Edge of Tomorty: Rick, Die, Rickpeat",
+              air_date: "November 10, 2019",
+              episode: "S04E01",
+            },
+          ],
+        },
+      },
+    },
+  };
+  it("render loading screen and episodes page", async () => {
+    render(
+      <MockedProvider mocks={[episodesMock]} addTypename={false}>
+        <ErrorBoundary FallbackComponent={FetchingError}>
+          <Episodes />
+        </ErrorBoundary>
+      </MockedProvider>,
+      { wrapper: BrowserRouter }
     );
-    server.use(createGet([episode]));
-    render(<Episodes />, { wrapper: BrowserRouter });
-    expect(screen.getByTestId("test-title-episodes-id").textContent).toBe(
-      "Episodes of the 4th season of the series Rick and Morty"
+    expect(screen.getByTestId("loader-episodes-id"));
+    expect(await screen.findByText("Edge of Tomorty: Rick, Die, Rickpeat"));
+    expect(await screen.findByText("S04E01"));
+
+    screen.debug();
+  });
+
+  const episodesNetworkErrorMock = {
+    delay: 30,
+    request: {
+      query: GET_EPISODES,
+      variables: {
+        episodeFilter: "S04",
+      },
+    },
+    error: new Error("Network error occured"),
+  };
+  it("simulate network error", async () => {
+    render(
+      <MockedProvider mocks={[episodesNetworkErrorMock]} addTypename={false}>
+        <ErrorBoundary FallbackComponent={FetchingError}>
+          <Episodes />
+        </ErrorBoundary>
+      </MockedProvider>,
+      { wrapper: BrowserRouter }
     );
-    expect(screen.getByAltText("Rick and Morty show image"));
-    expect(await screen.findByText(episode.episode));
+    expect(screen.getByTestId("loader-episodes-id"));
+    expect(await screen.findByText("Network error occured"));
+
+    screen.debug();
+  });
+
+  const episodesGraphQLErrorMock = {
+    delay: 30,
+    request: {
+      query: GET_EPISODES,
+      variables: {
+        episodeFilter: "S04",
+      },
+    },
+    result: {
+      errors: [new GraphQLError("GraphQL error occured")],
+    },
+  };
+  it("simulate GraphQL error", async () => {
+    render(
+      <MockedProvider mocks={[episodesGraphQLErrorMock]} addTypename={false}>
+        <ErrorBoundary FallbackComponent={FetchingError}>
+          <Episodes />
+        </ErrorBoundary>
+      </MockedProvider>,
+      { wrapper: BrowserRouter }
+    );
+    expect(screen.getByTestId("loader-episodes-id"));
+    expect(await screen.findByText("GraphQL error occured"));
 
     screen.debug();
   });
 });
-
-const createEpisodeData = (
-  id: number,
-  name: string,
-  air_date: string,
-  episode: string
-) => {
-  return {
-    id,
-    name,
-    air_date,
-    episode,
-  };
-};
-
-const createGet = (results: EpisodesData[]) => {
-  return http.get<
-    never,
-    never,
-    EpisodesDataRes,
-    "https://rickandmortyapi.com/api/episode/"
-  >("https://rickandmortyapi.com/api/episode/", async () => {
-    return HttpResponse.json({
-      results,
-    });
-  });
-};

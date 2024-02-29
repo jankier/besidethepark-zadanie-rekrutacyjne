@@ -39,16 +39,13 @@ const Episodes = () => {
   return (
     <section className="episodes">
       {loading ? (
-        <div className="episodes-loading">
+        <div data-testid="loader-episodes-id" className="episodes-loading">
           <Loader />
         </div>
       ) : (
         <>
           <div className="episodes-left">
-            <div
-              data-testid="test-title-episodes-id"
-              className="episodes-title"
-            >
+            <div className="episodes-title">
               <span className="text text-400 episodes-title-text-black">
                 Episodes of the <span className="text-700">4th </span>
                 <br></br>
