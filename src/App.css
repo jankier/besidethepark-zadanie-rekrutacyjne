@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@font-face {
+  font-family: "Lato-Regular";
+  src: local("Lato-Regular"), url("./fonts/Lato-Regular.ttf") format("truetype");
+}
 
 :root {
   --black: #000000;
@@ -18,7 +21,7 @@
 }
 
 .text {
-  font-family: Lato;
+  font-family: "Lato-Regular";
   letter-spacing: 0px;
   text-align: left;
 }
