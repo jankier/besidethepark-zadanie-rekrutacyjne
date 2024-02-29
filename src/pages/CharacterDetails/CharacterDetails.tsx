@@ -41,7 +41,6 @@ const CharacterDetails = () => {
       showBoundary(error);
     } else {
       if (data) {
-        console.log(data);
         setCharacterData(data.character);
       }
     }
