@@ -1,76 +1,72 @@
 .error-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  margin-top: 100px;
-  height: calc(100vh - 410.73px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: calc(100vh - 308.5px);
 }
 
 .error-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
 .error-text > :nth-child(1) {
-  font-size: 70px;
-  line-height: 72px;
-  text-align: center;
-  color: var(--black);
+    font-size: 70px;
+    line-height: 72px;
+    text-align: center;
+    color: var(--black);
 }
 
 .error-text > :nth-child(2) {
-  font-size: 38px;
-  line-height: 42px;
-  text-align: center;
-  color: var(--cyan);
+    font-size: 38px;
+    line-height: 42px;
+    text-align: center;
+    color: var(--cyan);
 }
 
 .refresh-button {
-  width: 181px;
-  height: 50px;
-  font-size: 30px;
-  line-height: 36px;
-  cursor: pointer;
-  display: flex;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--light-cyan);
-  justify-content: center;
-  align-items: center;
+    width: 181px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 36px;
+    cursor: pointer;
+    display: flex;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--light-cyan);
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (max-width: 1060px) {
-  .error-page {
-    margin-top: 0px;
-    height: calc(100vh - 145.72px);
-  }
+    .error-page {
+        height: calc(100vh - 146.72px);
+    }
+    
+    .error-text {
+        gap: 10px;
+    }
+    
+    .error-text > :nth-child(1) {
+        font-size: 38px;
+        line-height: 42px;
+    }
 
-  .error-text {
-    gap: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+    .error-text > :nth-child(2) {
+        font-size: 20px;
+        line-height: 24px;
+    }
 
-  .error-text > :nth-child(1) {
-    font-size: 38px;
-    line-height: 42px;
-  }
-
-  .error-text > :nth-child(2) {
-    font-size: 20px;
-    line-height: 24px;
-  }
-
-  .refresh-button {
-    width: 132px;
-    height: 38px;
-    font-size: 20px;
-    line-height: 24px;
-  }
+    .refresh-button {
+        width: 132px;
+        height: 38px;
+        font-size: 20px;
+        line-height: 24px;
+    }
 }
