@@ -33,6 +33,7 @@ const Characters = () => {
       showBoundary(error);
     } else {
       if (data) {
+        console.log(data);
         setEpisodeNum(data.episode.episode.split("E").pop());
         setCharacters(data.episode.characters);
       }
@@ -62,7 +63,7 @@ const Characters = () => {
   return (
     <section className="characters">
       {loading ? (
-        <div className="characters-loading">
+        <div data-testid="loader-characters-id" className="characters-loading">
           <Loader />
         </div>
       ) : (
@@ -75,10 +76,7 @@ const Characters = () => {
               <Arrow />
               <span className="text text-400">Episodes</span>
             </button>
-            <div
-              data-testid="test-title-characters-id"
-              className="characters-title"
-            >
+            <div className="characters-title">
               <span className="text text-400 characters-title-text-black">
                 Characters of the{" "}
                 <span className="text-700">{episode_num}</span>
